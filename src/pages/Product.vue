@@ -1,36 +1,16 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
-      <a class="navbar-brand" href="#">VueStore</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >Shopping Cart - {{countItem}} Items</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
     <div class="container-fluid">
+      <div class="row p-2">
+       <div class="col-xl-12 text-right">
+         <h5 class="text-secondary m-2 p-1">
+           <a href="" class="text-primary" ><font-awesome-icon icon="user-circle" /> Account</a> -
+             <a href="" class="text-primary" ><font-awesome-icon icon="shopping-cart" /> U${{parseFloat(Math.round(total * 100) / 100).toFixed(2)}}</a> -
+          <a href="" class="text-primary" ><font-awesome-icon icon="arrow-alt-circle-right" /> Checkout</a>
+         </h5>
+       </div>
+</div>
+
       <div class="row m-4 p-4">
         <div class="col-lg-5 col-12">
           <div class="card">
@@ -116,7 +96,8 @@
 
     <div class="d-flex justify-content-center row"> <h3>Your Shopping Cart - 
 <b class="text-primary">Items added: {{countItem}}</b>
-<b class="text-danger">  - Total before Shipping:  U${{parseFloat(Math.round(total * 100) / 100).toFixed(2)}}</b>
+<b class="text-danger">  - Total before Shipping:  
+  U${{parseFloat(Math.round(total * 100) / 100).toFixed(2)}}</b>
       </h3></div>
 
     <div class="row">
