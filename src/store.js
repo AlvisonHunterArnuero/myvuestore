@@ -5,33 +5,41 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    data: [
-      {
-        title: "This is data title 1",
-        description: "Description, Lorem Ipsum"
-      },
-      {
-        title: "This is data title 2",
-        description: "Description, Dolor Sit Sammet"
-      }
-    ],
-    alvison: "soy alvison",
-          cart: [],
+      cart: [],
+      total: "0",
       items: 0
   },
   mutations: {
-    addNewData(state, payload) {
-      const newData = {
+    addNewItem(state, payload) {
+      const newItem = {
         title: payload.title,
         description: payload.description
       };
-      this.state.data.push(newData);
+      this.state.cart.push(newItem);
     },
-    removeData(state, payload) {
+    removeItem(state, payload) {
       const index = payload;
-      this.state.data.splice(index, 1);
+      this.state.Item.splice(index, 1);
     }
   }
 });
 
 export default store;
+
+
+// addItem2Cart: function() {
+//   this.countItem = this.countItem + 1;
+//   this.total = +this.total + +this.price;
+//   this.cart.push({
+//     img: this.picture_src,
+//     color: this.color,
+//     price: this.price,
+//     stars: this.stars
+//   });
+// },
+
+// removeItemFromCart: function(value, prix) {
+// this.cart.splice(value, 1); 
+// this.countItem = this.countItem - 1;
+// this.total = +this.total - +prix;
+// },

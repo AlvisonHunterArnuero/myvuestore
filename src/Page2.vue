@@ -1,22 +1,27 @@
 <template>
   <div class="marginbottom">
-    <Product :countItem="ItemsInCart" :productSummary="myCart"
+    <Product 
+    :productSummary="myCart"
     msg="Derminpro Men’s Polo Shirts" 
     description="Short Sleeve Quick Dry Athletic Golf T-Shirts" 
     picture_src="black_shirt.jpg" 
     price="23.56" 
     stars="✭✭✭✭✭"
-    color="Black" 
+    color="Black"
+    countItem="0.00"
     total= "0.00" />
-    <div class="mb-4 d-flex justify-content-end mr-4 lead text-primary">
-      <router-link to="/">Go to Home page</router-link>  
+    <div class="mb-4 d-flex justify-content-end mr-4">
+      
+      
   </div>
    
   </div>
 </template>
 
 <script>
+
 import Product from "./pages/Product";
+
 
 export default {
   name: "Page2",
@@ -28,7 +33,7 @@ export default {
 
 <style scoped>
 .marginbottom{
-  margin-bottom: 45px !important;
+  margin-bottom: 100px !important;
 }
 
 .fade-enter-active,
