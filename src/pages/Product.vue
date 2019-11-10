@@ -202,6 +202,7 @@ export default {
       this.cartAddedItems.splice(value, 1);
       this.countItem = this.countItem - 1;
       this.total = +this.total - +prix;
+      this.$store.state.total = this.total;
     },
     resolve_img_url: function(path) {
       let images = require.context("../assets/", false, /\.png$|\.jpg$/);
