@@ -5,7 +5,7 @@
         <div class="col-xl-12 text-right">
           <h5 class="text-secondary m-2 p-1">
             <b-button variant="link">
-              <font-awesome-icon icon="user-circle" />Account
+              <font-awesome-icon icon="user-circle" /> {{this.$store.state.user}}
             </b-button>-
             <b-button variant="link" v-b-modal.modal-center>
               <font-awesome-icon icon="shopping-cart" />
@@ -149,6 +149,9 @@
         </b-modal>
       </div>
       <!-- Row for modals ends here -->
+      <div class="row"> <!-- start login modal  -->
+  
+      </div> <!-- end of login modal -->
     </div>
     <!-- end of container fluid -->
   </div>
@@ -160,6 +163,7 @@ export default {
   name: "Product",
   data() {
     return {
+      userId: '',
       cartAddedItems: []
     };
   },
@@ -182,14 +186,18 @@ export default {
       this.color = color;
     },
 
-      computed: {
-    ...mapState(["cart","total","items"]),
+   computed: {
+    ...mapState(["cart","total","islogged","items","user"]),
+   validation() {
+        return this.userId.length > 4 && this.userId.length < 13
+      }
   },
 
     addItem2Cart: function() {
       this.countItem = +this.countItem + 1;
       this.total = +this.total + +this.price;
       this.$store.state.total = this.total;
+      this.$store.state.items = this.countItem;
       this.cartAddedItems.push({
         img: this.picture_src,
         color: this.color,

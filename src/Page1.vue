@@ -37,10 +37,11 @@
       <div class="col-xl-4 text-right">
         <h5 class="text-white m-2 p-1">
           <a href class="text-white">
-            <font-awesome-icon icon="user-circle" />Account
+            <font-awesome-icon icon="user-circle" /> {{this.$store.state.user}}
           </a> -
           <a href class="text-white">
-            <font-awesome-icon icon="shopping-cart" /> {{this.$store.state.total}}
+            <font-awesome-icon icon="shopping-cart" /> {{this.$store.state.items}} items -
+            U${{parseFloat(Math.round(this.$store.state.total * 100) / 100).toFixed(2)}}
           </a> -
           <a href class="text-white">
             <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
@@ -188,7 +189,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["cart","total"]),
+    ...mapState(["cart","total","islogged","items","user"]),
   }
 };
 </script>

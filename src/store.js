@@ -5,6 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+      user: "Guest",
+      islogged: false,
       cart: [],
       total: "0",
       items: 0
