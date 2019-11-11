@@ -1,6 +1,7 @@
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
+import Page4 from "./Page4";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     component: Page3,
     name: "Page3"
   },
+  {
+    path: "/checkout",
+    component: Page4,
+    name: "Page4"
+  }
 ];
 
 export default routes;

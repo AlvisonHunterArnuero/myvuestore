@@ -7,7 +7,10 @@
         <b>FREE</b> store pickup today
         <b>TAKE AN EXTRA</b> 30%, 2
         5% or 20% off when you use a VueStore's Charge.
-        <a class="text-danger" href>Click for more details & exclusions</a>
+        <a
+          class="text-danger"
+          href
+        >Click for more details & exclusions</a>
       </h6>
     </div>
 
@@ -37,15 +40,19 @@
       <div class="col-xl-4 text-right">
         <h5 class="text-white m-2 p-1">
           <a href class="text-white">
-            <font-awesome-icon icon="user-circle" /> {{this.$store.state.user}}
+            <font-awesome-icon icon="user-circle" />
+            {{this.$store.state.user}}
           </a> -
           <a href class="text-white">
-            <font-awesome-icon icon="shopping-cart" /> {{this.$store.state.items}} items -
+            <font-awesome-icon icon="shopping-cart" />
+            {{this.$store.state.items}} items -
             U${{parseFloat(Math.round(this.$store.state.total * 100) / 100).toFixed(2)}}
           </a> -
-          <a href class="text-white">
-            <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
-          </a>
+          <router-link to="/checkout">
+            <a href class="text-white">
+              <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
+            </a>
+          </router-link>
         </h5>
       </div>
     </div>
@@ -189,7 +196,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["cart","total","islogged","items","user"]),
+    ...mapState(["cart", "total", "islogged", "items", "user"])
   }
 };
 </script>
