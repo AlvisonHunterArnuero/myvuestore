@@ -158,8 +158,15 @@
           id="modal-center"
           modal-cancel="No"
           centered
-          title="Your Shopping Cart"
+          title="Items List"
         >
+          <p
+            class="text-info text-center text-uppercase"
+            v-if="!cartAddedItems.length"
+          >
+            Your Shopping Cart is currently empty 😢
+          </p>
+
           <div
             class="col-12"
             v-for="(item, index) in cartAddedItems"
@@ -195,7 +202,6 @@
                 </p>
               </div>
             </div>
-            <!-- Card ends here -->
           </div>
         </b-modal>
       </div>
@@ -264,6 +270,7 @@ export default {
       this.countItem = this.countItem - 1;
       this.total = +this.total - +prix;
       this.$store.state.total = this.total;
+      this.$store.state.items = this.countItem;
       this.$store.state.cart = [...this.cartAddedItems];
     },
 
