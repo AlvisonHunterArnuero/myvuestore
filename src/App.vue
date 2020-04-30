@@ -14,25 +14,25 @@ export default {
   data() {
     return {
       storeState: store.state,
-      ItemsInCart: store.state.items,
-      myCart: store.state.cart
+      itemsInCart: store.state.items,
+      myCart: store.state.cart,
     };
   },
   mounted() {
-    store.addItemToCart("Nuevo Dato");
+    store.addItemToCart("");
     store.countItemsInCart(0);
-    this.ItemsInCart = store.state.items;
+    this.itemsInCart = store.state.items;
   },
 
   computed: {
     add2Cart() {
       return store.items;
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style lang="css" >
+<style lang="css">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

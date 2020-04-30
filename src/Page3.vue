@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-<Account />
+    <Account />
   </div>
 </template>
 
@@ -9,20 +9,22 @@ import Account from "./pages/Account";
 
 export default {
   name: "Page3",
-    show: false,
+  show: false,
   components: {
-    Account
+    Account,
   },
-    methods: {
+  methods: {
     resolve_img_url: function(path) {
       let images = require.context("./pages/", false, /\.png$|\.jpg$/);
       return images("./" + path);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-a, a:hover {color:honeydew}
-
+a,
+a:hover {
+  color: honeydew;
+}
 </style>
