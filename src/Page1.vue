@@ -10,7 +10,7 @@
     </div>
 
     <div class="row p-2 bg-warning">
-      <div class="col-md-8 justify-content-between">
+      <div class="col-12 col-sm-12 col-md-12 col-xl-7 justify-content-between">
         <form class="row">
           <div class="col-12 col-sm pr-sm-0 mr-2">
             <input
@@ -32,7 +32,7 @@
           </div>
         </form>
       </div>
-      <div class="col-xl-4 text-right">
+      <div class="col-12 col-sm-12 col-md-12 col-xl-5 text-right">
         <h5 class="text-white m-2 p-1">
           <router-link
             v-if="this.$store.state.isLogged"
@@ -41,7 +41,8 @@
             replace
           >
             <a href class="text-white">
-              <font-awesome-icon icon="arrow-alt-circle-right" /> Logout
+              <font-awesome-icon icon="user-circle" />
+              {{ this.$store.state.username }} - Logout
             </a>
           </router-link>
           -
@@ -56,7 +57,7 @@
           -
           <router-link to="/checkout">
             <a href class="text-white">
-              <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
+              <font-awesome-icon icon="arrow-alt-circle-right" /> Checkout
             </a>
           </router-link>
         </h5>
@@ -75,7 +76,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb01.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -100,7 +101,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb05.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -125,7 +126,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb06.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -150,7 +151,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb03.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -174,7 +175,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb04.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -200,7 +201,7 @@
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
             <img
               src="./pages/thumb01.jpg"
-              class="card-img-top"
+              class="card-img-top mt-3"
               alt="Go to the product page"
             />
             <div class="card-body">
@@ -227,6 +228,7 @@
 <script>
 import About from "./pages/About";
 import { mapState } from "vuex";
+import users from "../src/users/users.json";
 
 export default {
   name: "Page1",
@@ -247,6 +249,11 @@ export default {
   },
   computed: {
     ...mapState(["cart", "total", "islogged", "items", "user"]),
+    retrieveUser: function() {
+      let usersList = JSON.parse(users);
+      const result = usersList.filter((user) => user === "alvisonhunter");
+      return result;
+    },
   },
 };
 </script>

@@ -26,7 +26,7 @@
             >-
             <router-link to="/checkout">
               <b-button variant="link">
-                <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
+                <font-awesome-icon icon="arrow-alt-circle-right" /> Checkout
               </b-button>
             </router-link>
           </h5>
@@ -217,10 +217,6 @@
         </b-modal>
       </div>
       <!-- Row for modals ends here -->
-      <div class="row">
-        <!-- start login modal  -->
-      </div>
-      <!-- end of login modal -->
     </div>
     <!-- end of container fluid -->
   </div>

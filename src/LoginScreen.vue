@@ -76,7 +76,18 @@ export default {
     };
   },
 
+  mounted() {
+    this.makeToast();
+  },
   methods: {
+    makeToast(append = false) {
+      this.$bvToast.toast(`You must logon in order to access the website.`, {
+        title: "Welcome to VueStore",
+        autoHideDelay: 5000,
+        appendToast: append,
+      });
+    },
+
     login() {
       if (this.input.username != "" && this.input.password != "") {
         if (
