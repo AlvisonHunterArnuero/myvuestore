@@ -2,15 +2,10 @@
   <div class="container-fluid">
     <div class="row justify-content-center mb-0">
       <h6 class="text-secondary p-2 bg-light w-100">
-        <b>FREE</b> shipping with $50 purchase.
-        details
-        <b>FREE</b> store pickup today
-        <b>TAKE AN EXTRA</b> 30%, 2
-        5% or 20% off when you use a VueStore's Charge.
-        <a
-          class="text-danger"
-          href
-        >Click for more details & exclusions</a>
+        <b>FREE</b> shipping with $50 purchase. details <b>FREE</b> store pickup
+        today <b>TAKE AN EXTRA</b> 30%, 2 5% or 20% off when you use a
+        VueStore's Charge.
+        <a class="text-danger" href>Click for more details & exclusions</a>
       </h6>
     </div>
 
@@ -39,15 +34,26 @@
       </div>
       <div class="col-xl-4 text-right">
         <h5 class="text-white m-2 p-1">
-          <a href class="text-white">
-            <font-awesome-icon icon="user-circle" />
-            {{this.$store.state.user}}
-          </a> -
+          <router-link
+            v-if="this.$store.state.isLogged"
+            to="/login"
+            v-on:click.native="logout()"
+            replace
+          >
+            <a href class="text-white">
+              <font-awesome-icon icon="arrow-alt-circle-right" /> Logout
+            </a>
+          </router-link>
+          -
           <a href class="text-white">
             <font-awesome-icon icon="shopping-cart" />
-            {{this.$store.state.items}} items -
-            U${{parseFloat(Math.round(this.$store.state.total * 100) / 100).toFixed(2)}}
-          </a> -
+            {{ this.$store.state.cart.length }} items - U${{
+              parseFloat(
+                Math.round(this.$store.state.total * 100) / 100
+              ).toFixed(2)
+            }}
+          </a>
+          -
           <router-link to="/checkout">
             <a href class="text-white">
               <font-awesome-icon icon="arrow-alt-circle-right" />Checkout
@@ -59,13 +65,19 @@
     <About />
     <br />
     <div>
-      <h1 class="border-bottom text-uppercase mt-4 text-danger">Deals and Promotions</h1>
+      <h1 class="border-bottom text-uppercase mt-4 text-danger">
+        Deals and Promotions
+      </h1>
       <h4>Shop Today’s Deals, Lightning Deals, and limited-time discounts</h4>
       <div class="row justify-content-center pb-4">
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb01.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb01.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -74,7 +86,9 @@
               </h6>
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -84,7 +98,11 @@
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb05.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb05.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -93,7 +111,9 @@
               </h6>
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -103,7 +123,11 @@
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb06.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb06.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -113,7 +137,9 @@
 
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -122,7 +148,11 @@
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb03.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb03.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -131,7 +161,9 @@
               </h6>
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -140,7 +172,11 @@
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb04.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb04.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -150,7 +186,9 @@
 
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -160,7 +198,11 @@
         <div class="col-xl-3 m-4">
           <div class="card m-4">
             <div class="card-header bg-info text-white">DEAL OF THE DAY</div>
-            <img src="./pages/thumb01.jpg" class="card-img-top" alt="Go to the product page" />
+            <img
+              src="./pages/thumb01.jpg"
+              class="card-img-top"
+              alt="Go to the product page"
+            />
             <div class="card-body">
               <h6 class="card-title text-uppercase">
                 Price:
@@ -169,7 +211,9 @@
               </h6>
               <p class="card-text">
                 <router-link to="/page2">
-                  <button type="button" class="btn btn-outline-primary">See Details</button>
+                  <button type="button" class="btn btn-outline-primary">
+                    See Details
+                  </button>
                 </router-link>
               </p>
             </div>
@@ -187,17 +231,23 @@ import { mapState } from "vuex";
 export default {
   name: "Page1",
   components: {
-    About
+    About,
   },
   methods: {
     resolve_img_url: function(path) {
       let images = require.context("./pages/", false, /\.png$|\.jpg$/);
       return images("./" + path);
-    }
+    },
+
+    logout() {
+      this.authenticated = false;
+      this.$store.state.isLogged = false;
+      this.$store.state.loginErrorMsg = "";
+    },
   },
   computed: {
-    ...mapState(["cart", "total", "islogged", "items", "user"])
-  }
+    ...mapState(["cart", "total", "islogged", "items", "user"]),
+  },
 };
 </script>
 

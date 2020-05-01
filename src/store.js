@@ -5,11 +5,13 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    user: "Guest",
+    username: "alvisonhunter",
+    password: "password2020",
     islogged: false,
     cart: [],
     total: 0,
     items: 0,
+    loginErrorMsg: "",
   },
   mutations: {
     addNewItem(state, payload) {

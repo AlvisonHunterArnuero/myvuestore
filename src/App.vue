@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in">
-      <router-view></router-view>
+      <router-view @authenticated="setAuthenticated"></router-view>
     </transition>
   </div>
 </template>
@@ -16,12 +16,31 @@ export default {
       storeState: store.state,
       itemsInCart: store.state.items,
       myCart: store.state.cart,
+      authenticated: false,
+      tmpCredentials: {
+        username: store.state.username,
+        password: store.state.password,
+      },
     };
   },
   mounted() {
-    store.addItemToCart("");
+    if (!this.authenticated) {
+      this.$router.replace({ name: "login" });
+    }
+
     store.countItemsInCart(0);
     this.itemsInCart = store.state.items;
+  },
+
+  methods: {
+    resolve_img_url: function(path) {
+      let images = require.context("./pages/", false, /\.png$|\.jpg$/);
+      return images("./" + path);
+    },
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+
   },
 
   computed: {

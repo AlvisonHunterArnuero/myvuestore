@@ -4,13 +4,21 @@
       <div class="row p-2">
         <div class="col-xl-12 text-right">
           <h5 class="text-secondary m-2 p-1">
-            <b-button variant="link">
-              <font-awesome-icon icon="user-circle" />
-              {{ this.$store.state.user }} </b-button
-            >-
+            <router-link
+              v-if="this.$store.state.isLogged"
+              to="/login"
+              v-on:click.native="logout()"
+              replace
+            >
+              <b-button variant="link">
+                <font-awesome-icon icon="user-circle" /> Logout
+              </b-button>
+            </router-link>
+
+            -
             <b-button variant="link" v-b-modal.modal-center>
               <font-awesome-icon icon="shopping-cart" />
-              {{ this.$store.state.items }} items - U${{
+              {{ this.$store.state.cart.length }} items - U${{
                 parseFloat(
                   Math.round(this.$store.state.total * 100) / 100
                 ).toFixed(2)
@@ -99,9 +107,9 @@
               <li class="list-group-item bg-dark">
                 <h5 class="text-white mt-2">
                   PRODUCT DETAILS -
-                  <b class="text-info">Items added: {{ countItem }}</b>
-                  <b class="text-warning">
-                    - Total before Shipping: U${{
+
+                  <b class="small text-warning">
+                    Total before Shipping & Tax: U${{
                       parseFloat(Math.round(total * 100) / 100).toFixed(2)
                     }}
                   </b>
@@ -140,7 +148,7 @@
                   >
                     <font-awesome-icon icon="shopping-cart" />Add to Cart
                   </button>
-                  <router-link to="/">
+                  <router-link to="/page1">
                     <button type="button" class="btn btn-info btn-lg">
                       <font-awesome-icon icon="home" />Back to Home
                     </button>
@@ -155,6 +163,7 @@
       <div class="row">
         <!-- modals row starts here -->
         <b-modal
+          size="xl"
           id="modal-center"
           modal-cancel="No"
           centered
@@ -166,40 +175,42 @@
           >
             Your Shopping Cart is currently empty 😢
           </p>
-
-          <div
-            class="col-12"
-            v-for="(item, index) in cartAddedItems"
-            v-bind:key="index"
-          >
-            <div class="card m-4 justify-content-center">
-              <div class="card-header text-center">
-                Remove this Item
-                <button
-                  @click="removeItemFromCart(index, item.price)"
-                  class="badge badge-pill badge-success"
-                >
-                  X
-                </button>
-              </div>
-              <img
-                :src="resolve_img_url(item.img)"
-                class="card-img-top"
-                alt="item.color"
-              />
-              <div class="card-body">
-                <h5 class="card-title text-center text-uppercase">
-                  <b>COLOR:</b>
-                  {{ item.color }}
-                </h5>
-                <h6 class="card-subtitle mb-2 text-center text-success">
-                  <b>PRICE:</b>
-                  U${{ item.price }}
-                </h6>
-                <p class="card-text text-center">
-                  <b>STARS:</b>
-                  {{ item.stars }}
-                </p>
+          <div class="row">
+            <div
+              class="col-sm-3 col-md-3 col-xl-3"
+              v-for="(item, index) in cartAddedItems"
+              v-bind:key="index"
+            >
+              <div class="card m-4 justify-content-center">
+                <div class="card-header text-right">
+                  <button
+                    @click="removeItemFromCart(index, item.price)"
+                    type="button"
+                    class="close small"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <img
+                  :src="resolve_img_url(item.img)"
+                  class="card-img-top mt-2"
+                  alt="item.color"
+                />
+                <div class="card-body">
+                  <h6 class="card-title text-center text-uppercase">
+                    <b>COLOR:</b>
+                    {{ item.color }}
+                  </h6>
+                  <h6 class="card-subtitle mb-2 text-center text-success">
+                    <b>PRICE:</b>
+                    U${{ item.price }}
+                  </h6>
+                  <h6 class="card-text text-muted text-center">
+                    <b>STARS:</b>
+                    {{ item.stars }}
+                  </h6>
+                </div>
               </div>
             </div>
           </div>
@@ -277,6 +288,12 @@ export default {
     resolve_img_url: function(path) {
       let images = require.context("../assets/", false, /\.png$|\.jpg$/);
       return images("./" + path);
+    },
+
+    logout() {
+      this.authenticated = false;
+      this.$store.state.isLogged = false;
+      this.$store.state.loginErrorMsg = "";
     },
   },
 };

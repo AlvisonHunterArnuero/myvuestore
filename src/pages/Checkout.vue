@@ -27,7 +27,7 @@
 
     <div class="row justify-content-between">
       <div class="col-auto">
-        <router-link to="/">
+        <router-link to="/page1">
           <button type="button" class="btn btn-info btn-lg mb-3">
             <font-awesome-icon icon="home" />Back to Home
           </button>
