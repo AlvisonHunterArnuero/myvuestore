@@ -39,7 +39,7 @@
       <div class="col-12 col-sm-12 col-md-12 col-lg-4">
         <b-card
           header="Payment Details"
-          footer="Card Footer"
+          :footer="footerNotesDisclaimer"
           title="We accept all major cards."
         >
           <Payment />
@@ -86,6 +86,8 @@ export default {
   data() {
     return {
       userId: "",
+      footerNotesDisclaimer:
+        "Disclaimer: Your security is important to us. We do not store your credit card information since this transsaction is being handled in accordance with industry security standards.",
       fields: [
         { key: "img", label: "ITEM" },
         { key: "color", label: "COLOR" },
