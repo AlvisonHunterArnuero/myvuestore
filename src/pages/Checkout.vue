@@ -18,6 +18,7 @@
       <!-- start table  -->
       <div class="col-12 col-sm-12 col-md-12 col-lg-8">
         <b-table
+          class="border-bottom"
           :sticky-header="stickyHeader"
           hover
           head-variant="light"

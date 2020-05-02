@@ -1,8 +1,9 @@
+/* eslint-disable no-console */ /* eslint-disable no-console */
 <template>
   <div class="container h-100 p-4">
     <div class="row h-100 justify-content-center align-items-center">
       <b-card
-        :header="loginEror"
+        :header="loginError"
         header-class="myheader"
         class="overflow-hidden my-4 mx-auto"
         style="margin-top: 16%!important; max-width: 640px;"
@@ -52,8 +53,8 @@
                   ></b-form-input>
                 </b-form-group>
 
-                <b-button type="button" v-on:click="login()" variant="primary"
-                  >Login</b-button
+                <b-button type="button" v-on:click="login()" variant="primary">
+                  Login</b-button
                 >
               </b-form>
             </b-card-body>
@@ -65,6 +66,7 @@
 </template>
 
 <script>
+import { registeredUsers } from "../src/users/users.js"; // list of users
 export default {
   name: "LoginScreen",
   data() {
@@ -73,35 +75,84 @@ export default {
         password: "",
         username: "",
       },
+      registeredUsers: registeredUsers,
     };
   },
 
   mounted() {
-    this.makeToast();
+    this.makeToast(); // msg to user that he/she needs to logon
   },
   methods: {
+    /**
+     * This Method will display a popup message on the UI informing
+     * the user that he or she needs to logon in order to be able to
+     * use this app. The Toast will dissapear after 3 seconds.
+     * @param {boolean} [append] - This param is totally optional, we rarely use it as true.
+     */
     makeToast(append = false) {
       this.$bvToast.toast(`You must logon in order to access the website.`, {
         title: "Welcome to VueStore",
-        autoHideDelay: 5000,
+        autoHideDelay: 3000,
         appendToast: append,
       });
     },
 
+    /**
+     * This Method will retrieve an user from our list
+     * The return value will be an array with the index
+     * of the search query if this was successful.
+     * @param {string} usernameKey - Username from input element.
+     * @param {string} userPwdKey - Password from input element.
+     * @param {Array.<Object>} myArray - This object comes from the list of users imported to this file
+     */
+    retrieveUser: function(usernameKey, userPwdKey, myArray) {
+      for (let i = 0; i < myArray.length; i++) {
+        if (
+          myArray[i].username === usernameKey &&
+          myArray[i].password === userPwdKey
+        ) {
+          this.$store.state.username = usernameKey;
+          this.$store.state.password = userPwdKey;
+
+          return myArray[i];
+        }
+      }
+    },
+
+    /**
+     * This Method will allow us to make the validations needed to
+     * be able to access restricted views only permitted to registered users
+     */
     login() {
       if (this.input.username != "" && this.input.password != "") {
+        // Once I confirmed I have valid input, it is time to determine
+        // if this user exist in our users file, let's use this method
+        // to be able to find out if this is true
+        this.retrieveUser(
+          this.input.username,
+          this.input.password,
+          this.registeredUsers
+        );
+
+        // Now I have this information, let's compare these inputs with
+        // the data we were able to retrieve from our file
         if (
           this.input.username == this.$store.state.username &&
           this.input.password == this.$store.state.password
         ) {
+          // We got it! now is time to activate this fllag to allow me the
+          // navigation to the next section, or view, or page, or whatever
+          // you guys feel like call it, to me is simply a plain view
           this.$emit("authenticated", true);
-          this.$store.state.isLogged = true; // set login to true
-          this.$router.push({ path: "/page1" }); // redirect to the main page.
+          this.$store.state.isLogged = true; // set user login status to true
+          this.$router.push({ path: "/page1" }); // redirect to the main page o view.
         } else {
+          // On Error, I am using this state property to inform the user of the error on the UI
           this.$store.state.loginErrorMsg =
             "The username and / or password is incorrect";
         }
       } else {
+        // On Error, I am using this state property to inform the user of the error on the UI
         this.$store.state.loginErrorMsg =
           "A username and password must be present";
       }
@@ -109,15 +160,16 @@ export default {
   },
 
   computed: {
-    // a computed getter
+    // a computed getter to verify the logon user status
     userStatus: function() {
       let logonStatus = this.$store.state.isLogged
         ? "You’re Logged In"
         : "You’re Logged Out";
       return logonStatus;
     },
-
-    loginEror: function() {
+    // This is how I handle the logon error events, this came up nicely
+    // as part of the fresh ideas of the morning when I'm a bit inspired LOL
+    loginError: function() {
       return this.$store.state.loginErrorMsg;
     },
   },

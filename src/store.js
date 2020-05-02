@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    username: "alvisonhunter",
-    password: "password2020",
+    username: "",
+    password: "",
     islogged: false,
     cart: [],
     total: 0,

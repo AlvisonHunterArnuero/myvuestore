@@ -228,7 +228,7 @@
 <script>
 import About from "./pages/About";
 import { mapState } from "vuex";
-import users from "../src/users/users.json";
+
 
 export default {
   name: "Page1",
@@ -249,11 +249,7 @@ export default {
   },
   computed: {
     ...mapState(["cart", "total", "islogged", "items", "user"]),
-    retrieveUser: function() {
-      let usersList = JSON.parse(users);
-      const result = usersList.filter((user) => user === "alvisonhunter");
-      return result;
-    },
+
   },
 };
 </script>

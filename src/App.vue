@@ -13,7 +13,7 @@ export default {
   name: "app",
   data() {
     return {
-      storeState: store.state,
+      storeState: this.$store.state,
       itemsInCart: store.state.items,
       myCart: store.state.cart,
       authenticated: false,
@@ -27,8 +27,6 @@ export default {
     if (!this.authenticated) {
       this.$router.replace({ name: "login" });
     }
-
-    store.countItemsInCart(0);
     this.itemsInCart = store.state.items;
   },
 
@@ -40,7 +38,6 @@ export default {
     setAuthenticated(status) {
       this.authenticated = status;
     },
-
   },
 
   computed: {
