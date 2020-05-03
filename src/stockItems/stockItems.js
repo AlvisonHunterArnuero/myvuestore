@@ -95,3 +95,120 @@ export const stockItems = [
     imgURL: "../assets/shorts/leggins_black.jpg",
   },
 ];
+
+/*
+
+Amazon Essentials Women's Tank Maxi Dress
+$26.00
+95% Rayon, 5% Elastane
+Imported
+Machine Wash
+Stylish tank style sleeveless maxi dress perfect for a casual day out
+
+
+SheIn Women's V Neck Spaghetti Straps Sleeveless Sexy Backless Wrap Flare Dress
+$14.99
+95% polyester , 5% spandex
+Pull On closure
+95% Polyester, 5% Spandex, fabric has some stretch
+Dress length(inch): XS-26.4, S-26.8, M-27.2, L-27.6
+
+
+
+Amazon Brand - Daily Ritual Women's
+$35.96
+100% Lyocell
+Imported
+Button closure
+Machine Wash
+
+Amazon Brand - Daily Ritual Women's Jersey Short-Sleeve V-Neck T-Shirt Dress
+$18.50
+95% Rayon, 5% Spandex
+Imported
+Machine Wash
+This essential t-shirt dress features a V-neck and a relaxed fit for an effortless look that's ready to style
+
+
+Amazon Brand - Daily Ritual Women's Lived-in Cotton Short-Sleeve Crewneck Maxi Dress
+$15.50
+
+100% Cotton
+Imported
+Machine Wash
+This soft, smooth, and lightweight maxi dress is exceptionally versatile and flattering — perfect for work, travel, and everyday wear
+
+
+Amazon Brand - Daily Ritual Women's Jersey Sleeveless Empire-Waist Midi Dress
+$12.14
+95% Viscose, 5% Elastane
+Imported
+Machine Wash
+
+
+Amazon Brand - Daily Ritual Women's Jersey Short-Sleeve Crewneck Boxy Pocket T-Shirt Dress
+	$11.80
+95% Viscose, 5% Elastane
+Imported
+Machine Wash
+Made in Vietnam
+
+
+
+Amazon Brand - Daily Ritual Women's Jersey Sleeveless V-Neck Midi Dress
+$19.43
+95% Viscose, 5% Elastane
+Imported
+Machine Wash
+
+
+Amazon Brand - Daily Ritual Women's Jersey Muscle Swing Dress
+$19.02
+95% Rayon, 5% Spandex
+Imported
+Machine Wash
+Made in Vietnam
+
+
+Hanes Men's Long Sleeve Beefy Henley Shirt
+$22.51
+100% Cotton; Heather: 75% Cotton/25% Polyester
+Imported
+Button closure
+Machine Wash
+
+Carhartt Men's Workwear Pocket Henley Shirt
+$15.97
+100% Cotton
+Imported
+Button closure
+Carhartt Company Gear Collection
+
+
+Champion Men's MIDDLEWEIGHT Hoodie
+$21.00
+100% Cotton
+Imported
+Pull On closure
+Machine Wash
+
+
+Volcom Men's Crisp Stone Short Sleeve Tee
+$11.99
+100% Cotton
+Imported
+Button closure
+Machine Wash
+
+
+Carhartt Men's Workwear Jersey Pocket Long-Sleeve Shirt K126
+$18.04
+
+100% Cotton
+Imported
+Adjustable closure
+Machine Wash
+
+
+
+*/
