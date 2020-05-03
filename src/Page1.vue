@@ -14,6 +14,8 @@
         <form class="row">
           <div class="col-12 col-sm pr-sm-0 mr-2">
             <input
+              v-model="searchQuery"
+              v-on:keydown.enter.prevent="resultQuery"
               type="text"
               name="search"
               id="search"
@@ -24,6 +26,7 @@
           </div>
           <div class="col-12 col-sm-auto pl-sm-0">
             <input
+              v-on:click="resultQuery()"
               type="button"
               name="commit"
               value="Fetch it"
@@ -63,6 +66,39 @@
         </h5>
       </div>
     </div>
+
+    <div class="d">
+      <div class="row" v-if="arrStockItems.length > 0">
+        <div
+          class="my-3 col-3 col-md-3 col-lg-3 col-xl-3"
+          v-for="items in arrStockItems"
+          :key="items.index"
+        >
+          <div class="card">
+            <img
+              class="card-img-top"
+              :src="items.imgURL"
+              alt="Vue Store Clothing"
+            />
+            <div class="card-body">
+              <h6 class="card-title text-info text-uppercase">
+                {{ items.itemName }}
+              </h6>
+              <p class="card-text small">
+                {{ items.description }}
+              </p>
+              <a href="#" class="btn btn-primary">Add Item to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" v-else>
+        <div class="mx-auto h4 text-info my-3">
+          {{ this.queryErrorMsg }}
+        </div>
+      </div>
+    </div>
+
     <About />
     <br />
     <div>
@@ -228,14 +264,44 @@
 <script>
 import About from "./pages/About";
 import { mapState } from "vuex";
-
+import { stockItems } from "./stockItems/stockItems";
+// import g from "../src/assets/shorts";
 
 export default {
   name: "Page1",
   components: {
     About,
   },
+  data() {
+    return {
+      queryErrorMsg: "",
+      searchQuery: null,
+      arrStockItems: [],
+      stockItems: stockItems,
+      boolIsFetched: false,
+      itemsImgPath: "@/assets/shorts",
+    };
+  },
+
   methods: {
+    /**
+     * This Method will display a message on the UI informing the user
+     * that the item is either unavailable at this moment or if we have it
+     * the app will display all the filtered results containing that keyword.
+     */
+    resultQuery() {
+      if (this.searchQuery) {
+        this.arrStockItems = stockItems;
+        return (this.arrStockItems = this.stockItems.filter((item) => {
+          return item.itemType.toLowerCase() === this.searchQuery.toLowerCase();
+        }));
+      } else {
+        this.queryErrorMsg =
+          "Unfortunately we do not have this item in stock to fulfil your order (-48 hours available). Apologies for the inconvenience.";
+        return this.arrStockItems;
+      }
+    },
+
     resolve_img_url: function(path) {
       let images = require.context("./pages/", false, /\.png$|\.jpg$/);
       return images("./" + path);
@@ -249,7 +315,6 @@ export default {
   },
   computed: {
     ...mapState(["cart", "total", "islogged", "items", "user"]),
-
   },
 };
 </script>

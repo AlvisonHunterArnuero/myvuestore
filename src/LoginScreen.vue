@@ -1,4 +1,3 @@
-/* eslint-disable no-console */ /* eslint-disable no-console */
 <template>
   <div class="container h-100 p-4">
     <div class="row h-100 justify-content-center align-items-center">
