@@ -1,7 +1,7 @@
 export const registeredUsers = [
   {
     username: "alvisonhunter",
-    password: "password2020",
+    password: "p",
     email: "alvisonhunter@alondelistore.com",
   },
   {

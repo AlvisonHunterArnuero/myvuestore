@@ -16,6 +16,7 @@
             <input
               v-model="searchQuery"
               v-on:keydown.enter.prevent="resultQuery"
+              @input="fetchInputHandler"
               type="text"
               name="search"
               id="search"
@@ -67,10 +68,13 @@
       </div>
     </div>
 
-    <div class="d">
-      <div class="row" v-if="arrStockItems.length > 0">
+    <div class="">
+      <div
+        class="row border-bottom my-2 border-secondary"
+        v-if="this.arrStockItems.length > 0"
+      >
         <div
-          class="my-3 col-3 col-md-3 col-lg-3 col-xl-3"
+          class="my-3 col-12 col-md-6 col-lg-4 col-xl-3"
           v-for="items in arrStockItems"
           :key="items.index"
         >
@@ -93,7 +97,7 @@
         </div>
       </div>
       <div class="row" v-else>
-        <div class="mx-auto h4 text-info my-3">
+        <div class="mx-auto h5 text-info my-3">
           {{ this.queryErrorMsg }}
         </div>
       </div>
@@ -265,7 +269,6 @@
 import About from "./pages/About";
 import { mapState } from "vuex";
 import { stockItems } from "./stockItems/stockItems";
-// import g from "../src/assets/shorts";
 
 export default {
   name: "Page1",
@@ -278,7 +281,7 @@ export default {
       searchQuery: null,
       arrStockItems: [],
       stockItems: stockItems,
-      boolIsFetched: false,
+      boolCanFetch: false,
       itemsImgPath: "@/assets/shorts",
     };
   },
@@ -290,16 +293,47 @@ export default {
      * the app will display all the filtered results containing that keyword.
      */
     resultQuery() {
-      if (this.searchQuery) {
-        this.arrStockItems = stockItems;
-        return (this.arrStockItems = this.stockItems.filter((item) => {
-          return item.itemType.toLowerCase() === this.searchQuery.toLowerCase();
-        }));
+      // Let's validate if the user entered at least one character to proceed with the query
+      if (this.boolCanFetch === false) {
+        // if user did not type a thing, let us update the error message on the store
+        this.queryErrorMsg =
+          "You need at least to enter the search keyword in order for us to proceed.";
+        // let's present this error message on a toast so that the user is informed
+        this.makeToast();
       } else {
+        // let us update the error message just in case the fetched item does not exists
         this.queryErrorMsg =
           "Unfortunately we do not have this item in stock to fulfil your order (-48 hours available). Apologies for the inconvenience.";
-        return this.arrStockItems;
+
+        // If the user did type something on the input, let's fetch that item on the array
+        if (this.searchQuery) {
+          this.arrStockItems = stockItems;
+          return (this.arrStockItems = this.stockItems.filter((item) => {
+            return (
+              item.itemType.toLowerCase() === this.searchQuery.toLowerCase()
+            );
+          }));
+        } else {
+          return this.arrStockItems;
+        }
       }
+    },
+    /**
+     * This Method will display a popup message on the UI informing
+     * the user that he or she needs to logon in order to be able to
+     * use this app. The Toast will dissapear after 3 seconds.
+     * @param {boolean} [append] - This param is totally optional, we rarely use it as true.
+     */
+    makeToast(append = false) {
+      this.$bvToast.toast(this.queryErrorMsg, {
+        title: "Missing Information",
+        autoHideDelay: 3000,
+        appendToast: append,
+      });
+    },
+    // @input="fetchInputHandler"
+    fetchInputHandler() {
+      this.boolCanFetch = true;
     },
 
     resolve_img_url: function(path) {
