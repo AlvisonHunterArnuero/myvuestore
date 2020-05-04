@@ -4,28 +4,28 @@ export const stockItems = [
     itemType: "Short",
     price: "$18.53",
     description: "100% Cotton - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/short_cream.jpg",
+    imgURL: "./assets/shorts/short_cream.jpg",
   },
   {
     itemName: "Wrangler Men’s Twill Cargo Short",
     itemType: "Short",
     price: "$72.90",
     description: "100% Cotton - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/short_squares.jpg",
+    imgURL: "./assets/shorts/short_squares.jpg",
   },
   {
     itemName: "Wrangler Men’s Twill Cargo Short",
     itemType: "Short",
     price: "$19.09",
     description: "100% Cotton - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/short_camouflage.jpg",
+    imgURL: "./assets/shorts/short_camouflage.jpg",
   },
   {
     itemName: "Unionbay Men's Cordova Belted Messenger Cargo Short",
     itemType: "Short",
     price: "$23.81",
     description: "100% Cotton - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/short_gray.jpg",
+    imgURL: "./assets/shorts/short_gray.jpg",
   },
   {
     itemName: "LEE Men's Dungarees New Belted Wyoming Cargo Short",
@@ -33,21 +33,21 @@ export const stockItems = [
     price: "$9.88",
     description:
       "60% Cotton/40% Polyester -Imported -Machine Wash -X-Temp, a dynamic moisture control technology",
-    imgURL: "../assets/shorts/short_squares.jpg",
+    imgURL: "./assets/shorts/short_squares.jpg",
   },
   {
     itemName: "Hanes Men's 2 Pack X-Temp Performance T-Shirt",
     itemType: "Tshirt",
     price: "$12.99",
     description: "100% Cotton - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/tshirt_blue.jpg",
+    imgURL: "./assets/shorts/tshirt_blue.jpg",
   },
   {
     itemName: "Champion LIFE Men's Cotton Long Sleeve Tee",
     itemType: "Sweater",
     price: "$10.99",
     description: "100% Cotton - Imported - Machine Wash",
-    imgURL: "../assets/shorts/sweater_black.jpg",
+    imgURL: "./assets/shorts/sweater_black.jpg",
   },
   {
     itemName:
@@ -56,7 +56,7 @@ export const stockItems = [
     price: "$44.88",
     description:
       "Shell: 100% Nylon; Lining: 100% Polyester - Imported - Zipper closure - Machine Wash",
-    imgURL: "../assets/shorts/jacket_black.jpg",
+    imgURL: "./assets/shorts/jacket_black.jpg",
   },
   {
     itemName: "YunJey Round Neck Triple Color Block Stripe T-Shirt",
@@ -64,7 +64,7 @@ export const stockItems = [
     price: "$16.99",
     description:
       "Line Dry - Classic summer striped shirt with short sleeves - Simple, chic and delightful top for summer,you can pair it with jeans or leggings",
-    imgURL: "../assets/shorts/tshirt_stripes.jpg",
+    imgURL: "./assets/shorts/tshirt_stripes.jpg",
   },
   {
     itemName:
@@ -73,7 +73,7 @@ export const stockItems = [
     price: "$26.99",
     description:
       "95% rayon 5% spandex - 0.7 high - 14 wide - Fabric Material: 95% Rayon",
-    imgURL: "../assets/shorts/empire_waist_midi_dress.jpg",
+    imgURL: "./assets/shorts/empire_waist_midi_dress.jpg",
   },
 
   {
@@ -83,7 +83,7 @@ export const stockItems = [
     price: "$23.99",
     description:
       "Stripe Printed, Short Sleeve, Scoop Neck, Side-seam Pockets, knee length, Business Bodycon Pencil Dress, Office Midi Dress with Belt.",
-    imgURL: "../assets/shorts/dress_stripes.jpg",
+    imgURL: "./assets/shorts/dress_stripes.jpg",
   },
 
   {
@@ -92,7 +92,7 @@ export const stockItems = [
     itemType: "leggins",
     price: "$21.99",
     description: "100% Cotton - Imported - Machine Wash",
-    imgURL: "../assets/shorts/leggins_black.jpg",
+    imgURL: "./assets/shorts/leggins_black.jpg",
   },
 
   {
@@ -101,7 +101,7 @@ export const stockItems = [
     price: "$26.00",
     description:
       "95% Rayon, 5% Elastane - Imported - Machine Wash - Stylish tank style sleeveless maxi dress perfect for a casual day out",
-    imgURL: "../assets/shorts/maxi_dress.jpg",
+    imgURL: "./assets/shorts/maxi_dress.jpg",
   },
 
   {
@@ -111,7 +111,7 @@ export const stockItems = [
     price: "$14.99",
     description:
       "95% polyester , 5% spandex - Pull On closure -v95% Polyester, 5% Spandex, fabric has some stretch Dress",
-    imgURL: "../assets/shorts/flare_dress_.jpg",
+    imgURL: "./assets/shorts/flare_dress_.jpg",
   },
 
   {
@@ -120,7 +120,7 @@ export const stockItems = [
     itemType: "dress",
     price: "$35.96",
     description: "100% Lyocell - Imported -Button closure - Machine Wash",
-    imgURL: "../assets/shorts/tencel_long_sleeve_shirt_dress_.jpg",
+    imgURL: "./assets/shorts/tencel_long_sleeve_shirt_dress_.jpg",
   },
   {
     itemName:
@@ -129,7 +129,7 @@ export const stockItems = [
     price: "$18.50",
     description:
       "95% Rayon, 5% Spandex - Imported - Machine Wash - This essential t-shirt dress features a V-neck and a relaxed fit for an effortless look that's ready to style",
-    imgURL: "../assets/shorts/v-neck_tshirt_dress.jpg",
+    imgURL: "./assets/shorts/v-neck_tshirt_dress.jpg",
   },
 
   {
@@ -139,7 +139,7 @@ export const stockItems = [
     price: "$15.50",
     description:
       "100% Cotton Imported - Machine Wash - This soft, smooth, and lightweight maxi dress is exceptionally versatile and flattering.",
-    imgURL: "../assets/shorts/crew_neck_maxi_dress.jpg",
+    imgURL: "./assets/shorts/crew_neck_maxi_dress.jpg",
   },
 
   {
@@ -148,7 +148,7 @@ export const stockItems = [
     itemType: "dress",
     price: "$12.14",
     description: "95% Viscose, 5% Elastane - Imported - Machine Wash",
-    imgURL: "../assets/shorts/sleeveless_empire_waist_midi_dress.jpg",
+    imgURL: "./assets/shorts/sleeveless_empire_waist_midi_dress.jpg",
   },
 
   {
@@ -158,7 +158,7 @@ export const stockItems = [
     price: "$11.80",
     description:
       "95% Viscose, 5% Elastane - Imported - Machine Wash - Made in Vietnam",
-    imgURL: "../assets/shorts/boxy_pocket_tshirt_dress.jpg",
+    imgURL: "./assets/shorts/boxy_pocket_tshirt_dress.jpg",
   },
   {
     itemName:
@@ -166,7 +166,7 @@ export const stockItems = [
     itemType: "dress",
     price: "$19.43",
     description: "95% Viscose, 5% Elastane - Imported - Machine Wash",
-    imgURL: "../assets/shorts/v_neck_midi_dress.jpg",
+    imgURL: "./assets/shorts/v_neck_midi_dress.jpg",
   },
 
   {
@@ -175,7 +175,7 @@ export const stockItems = [
     price: "$19.02",
     description:
       "95% Rayon, 5% Spandex Imported - Machine Wash - Made in Vietnam",
-    imgURL: "../assets/shorts/swing_dress.jpg",
+    imgURL: "./assets/shorts/swing_dress.jpg",
   },
 
   {
@@ -184,7 +184,7 @@ export const stockItems = [
     price: "$22.51",
     description:
       "100% Cotton; Heather: 75% Cotton/25% Polyester - Imported - Button closure - Machine Wash",
-    imgURL: "../assets/shorts/henley_shirt.jpg",
+    imgURL: "./assets/shorts/henley_shirt.jpg",
   },
   {
     itemName: "Carhartt Men's Workwear Pocket Henley Shirt",
@@ -192,7 +192,7 @@ export const stockItems = [
     price: "$15.97",
     description:
       "100% Cotton - Imported - Button closure - Carhartt Company Gear Collection",
-    imgURL: "../assets/shorts/pocket_henley_shirt.jpg",
+    imgURL: "./assets/shorts/pocket_henley_shirt.jpg",
   },
   // here
   {
@@ -200,7 +200,7 @@ export const stockItems = [
     itemType: "sweater",
     price: "$21.00",
     description: "100% Cotton - Imported - Pull On closure - Machine Wash",
-    imgURL: "../assets/shorts/hoodie_sweater_black.jpg",
+    imgURL: "./assets/shorts/hoodie_sweater_black.jpg",
   },
 
   {
@@ -208,7 +208,7 @@ export const stockItems = [
     itemType: "Tshirt",
     price: "$11.99",
     description: "100% Cotton - Imported - Button closure - Machine Wash",
-    imgURL: "../assets/shorts/short_sleeve_black_tshirt.jpg",
+    imgURL: "./assets/shorts/short_sleeve_black_tshirt.jpg",
   },
 
   {
@@ -216,6 +216,6 @@ export const stockItems = [
     itemType: "shirt",
     price: "$18.04",
     description: "100% Cotton - Imported - Adjustable closure - Machine Wash",
-    imgURL: "../assets/shorts/long_sleeve_shirt.jpg",
+    imgURL: "./assets/shorts/long_sleeve_shirt.jpg",
   },
 ];
