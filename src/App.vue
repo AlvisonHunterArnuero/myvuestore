@@ -28,6 +28,7 @@ export default {
       this.$router.replace({ name: "login" });
     }
     this.itemsInCart = store.state.items;
+    
   },
 
   methods: {

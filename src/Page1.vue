@@ -69,38 +69,46 @@
     </div>
 
     <div class="">
-      <div
-        class="row border-bottom my-2 border-secondary"
-        v-if="this.arrStockItems.length > 0"
-      >
+      <transition name="fade">
+        <p v-if="show">hello</p>
+
         <div
-          class="my-3 col-12 col-md-6 col-lg-4 col-xl-3"
-          v-for="items in arrStockItems"
-          :key="items.index"
+          class="row border-bottom my-2 border-secondary"
+          v-if="this.arrStockItems.length > 0"
         >
-          <div class="card">
-            <img
-              class="card-img-top"
-              :src="items.imgURL"
-              alt="Vue Store Clothing"
-            />
-            <div class="card-body">
-              <h6 class="card-title text-info text-uppercase">
-                {{ items.itemName }}
-              </h6>
-              <p class="card-text small">
-                {{ items.description }}
-              </p>
-              <a href="#" class="btn btn-primary">Add Item to Cart</a>
+          <div
+            class="my-3 col-12 col-md-6 col-lg-4 col-xl-3"
+            v-for="items in arrStockItems"
+            :key="items.index"
+          >
+            <div class="card">
+              <div class="card-header">
+                Only at
+                <span class="text-danger">{{ items.price }}</span>
+              </div>
+              <img
+                class="card-img-top"
+                :src="items.imgURL"
+                alt="Vue Store Clothing"
+              />
+              <div class="card-body">
+                <h6 class="card-title text-info text-uppercase">
+                  {{ items.itemName }}
+                </h6>
+                <p class="card-text small">
+                  {{ items.description }}
+                </p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row" v-else>
-        <div class="mx-auto h5 text-info my-3">
-          {{ this.queryErrorMsg }}
+        <div class="row" v-else>
+          <div class="mx-auto h5 text-info my-3">
+            {{ this.queryErrorMsg }}
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
 
     <About />
@@ -278,6 +286,7 @@ export default {
   data() {
     return {
       queryErrorMsg: "",
+      rndNumber: 0,
       searchQuery: null,
       arrStockItems: [],
       stockItems: stockItems,
@@ -301,6 +310,7 @@ export default {
         // let's present this error message on a toast so that the user is informed
         this.makeToast();
       } else {
+        this.rndNumber = this.randomNumber(4, 6);
         // let us update the error message just in case the fetched item does not exists
         this.queryErrorMsg =
           "Unfortunately we do not have this item in stock to fulfil your order (-48 hours available). Apologies for the inconvenience.";
@@ -334,6 +344,10 @@ export default {
     // @input="fetchInputHandler"
     fetchInputHandler() {
       this.boolCanFetch = true;
+    },
+
+    randomNumber(min, max) {
+      return Math.random() * (max - min) + min;
     },
 
     resolve_img_url: function(path) {
