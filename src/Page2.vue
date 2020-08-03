@@ -21,8 +21,8 @@ import Product from "./pages/Product";
 export default {
   name: "Page2",
   components: {
-    Product
-  }
+    Product,
+  },
 };
 </script>
 

@@ -11,7 +11,8 @@
               replace
             >
               <b-button variant="link">
-                <font-awesome-icon icon="user-circle" /> Logout
+                <font-awesome-icon icon="user-circle" />
+                {{ this.$store.state.username }} - Logout
               </b-button>
             </router-link>
 

@@ -5,6 +5,9 @@
         <h1 class="text-info text-uppercase">
           Shopping Cart Checkout
         </h1>
+        <small class="float-left"
+          >Currently logged in as {{ this.$store.state.username }}</small
+        >
       </div>
       <div class="col-auto">
         <router-link to="/page1">
