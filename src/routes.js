@@ -1,43 +1,43 @@
-import Page1 from "./Page1";
-import Page2 from "./Page2";
-import Page3 from "./Page3";
-import Page4 from "./Page4";
-import LoginScreen from "./LoginScreen";
+import Home from './Home';
+import ItemDetails from './ItemDetails';
+import PageNotFound from './PageNotFound';
+import CartCheckoutWrapper from './CartCheckoutWrapper';
+import LoginScreen from './LoginScreen';
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     redirect: {
-      name: "login",
+      name: 'login',
     },
   },
 
   {
-    path: "/login",
+    path: '/login',
     component: LoginScreen,
-    name: "login",
+    name: 'login',
   },
 
   {
-    path: "/page1",
-    component: Page1,
-    name: "page1",
+    path: '/home',
+    component: Home,
+    name: 'home',
   },
 
   {
-    path: "/page2",
-    component: Page2,
-    name: "Page2",
+    path: '/item-details',
+    component: ItemDetails,
+    name: 'ItemDetails',
   },
   {
-    path: "/page3",
-    component: Page3,
-    name: "Page3",
+    path: '/checkout',
+    component: CartCheckoutWrapper,
+    name: 'CartCheckoutWrapper',
   },
   {
-    path: "/checkout",
-    component: Page4,
-    name: "Page4",
+    path: '*',
+    component: PageNotFound,
+    name: 'PageNotFound',
   },
 ];
 

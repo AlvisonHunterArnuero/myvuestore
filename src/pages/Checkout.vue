@@ -10,7 +10,7 @@
         >
       </div>
       <div class="col-auto">
-        <router-link to="/page1">
+        <router-link to="/home">
           <button type="button" class="btn btn-outline-info btn-lg">
             <font-awesome-icon icon="home" />
           </button>
@@ -79,23 +79,23 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import Payment from "../components/Payment";
+import { mapState } from 'vuex';
+import Payment from '../components/Payment';
 export default {
-  name: "Checkout",
+  name: 'Checkout',
   components: {
     Payment,
   },
   data() {
     return {
-      userId: "",
+      userId: '',
       footerNotesDisclaimer:
-        "Disclaimer: Your security is important to us. We do not store your credit card information since this transsaction is being handled in accordance with industry security standards.",
+        'Disclaimer: Your security is important to us. We do not store your credit card information since this transsaction is being handled in accordance with industry security standards.',
       fields: [
-        { key: "img", label: "ITEM" },
-        { key: "color", label: "COLOR" },
-        { key: "price", label: "PRICE" },
-        { key: "stars", label: "STARS" },
+        { key: 'img', label: 'ITEM' },
+        { key: 'color', label: 'COLOR' },
+        { key: 'price', label: 'PRICE' },
+        { key: 'stars', label: 'STARS' },
       ],
       cartAddedItems: Array.from(this.$store.state.cart),
       shoppingCartSubTotal: parseFloat(
@@ -108,7 +108,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["cart", "total", "islogged", "items", "user"]),
+    ...mapState(['cart', 'total', 'islogged', 'items', 'user']),
   },
   methods: {
     selectedItem: function(myImage, price, stars, color) {
@@ -118,8 +118,8 @@ export default {
       this.color = color;
     },
     resolve_img_url: function(path) {
-      let images = require.context("../assets/", false, /\.png$|\.jpg$/);
-      return images("./" + path);
+      let images = require.context('../assets/', false, /\.png$|\.jpg$/);
+      return images('./' + path);
     },
   },
 };

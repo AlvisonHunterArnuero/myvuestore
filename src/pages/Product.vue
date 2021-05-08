@@ -149,7 +149,7 @@
                   >
                     <font-awesome-icon icon="shopping-cart" />Add to Cart
                   </button>
-                  <router-link to="/page1">
+                  <router-link to="/home">
                     <button type="button" class="btn btn-info btn-lg">
                       <font-awesome-icon icon="home" />Back to Home
                     </button>
@@ -224,12 +224,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 export default {
-  name: "Product",
+  name: 'Product',
   data() {
     return {
-      userId: "",
+      userId: '',
       cartAddedItems: [...this.$store.state.cart],
     };
   },
@@ -253,13 +253,14 @@ export default {
     },
 
     computed: {
-      ...mapState(["cart", "total", "islogged", "items", "user"]),
+      ...mapState(['cart', 'total', 'islogged', 'items', 'user']),
     },
 
     // this has to be moved to the store.js and use it by
     // reference once we need to use it here or elsewhere
 
     addItem2Cart: function() {
+      alert('HI adding');
       this.countItem = +this.countItem + 1;
       this.total = +this.total + +this.price;
       this.$store.state.total = this.total;
@@ -283,14 +284,14 @@ export default {
     },
 
     resolve_img_url: function(path) {
-      let images = require.context("../assets/", false, /\.png$|\.jpg$/);
-      return images("./" + path);
+      let images = require.context('../assets/', false, /\.png$|\.jpg$/);
+      return images('./' + path);
     },
 
     logout() {
       this.authenticated = false;
       this.$store.state.isLogged = false;
-      this.$store.state.loginErrorMsg = "";
+      this.$store.state.loginErrorMsg = '';
     },
   },
 };

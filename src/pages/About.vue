@@ -28,7 +28,7 @@
         </ul>
         <br />
         <p class="lead">Are you ready to start your shopping journey?</p>
-        <router-link to="/page2"
+        <router-link to="/item-details"
           ><b-button block variant="primary"
             >View our latest products</b-button
           ></router-link
@@ -74,11 +74,11 @@
 
 <script>
 export default {
-  name: "About",
+  name: 'About',
   methods: {
     resolve_img_url: function(path) {
-      let images = require.context("../assets/", false, /\.png$|\.jpg$/);
-      return images("./" + path);
+      let images = require.context('../assets/', false, /\.png$|\.jpg$/);
+      return images('./' + path);
     },
   },
 };

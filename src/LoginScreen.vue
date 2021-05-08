@@ -1,11 +1,24 @@
 <template>
-  <div class="container h-100 p-4">
+  <div class="container h-100 p-2">
+    <div class="row justify-content-center">
+      <div class="alert alert-light" role="alert">
+        <h6 class="alert-heading text-uppercase">DEMO User Name Credentials</h6>
+        <p>
+          In order to use this app, please use the below credentials. this won't
+          appear in the production version of this app.
+        </p>
+        <hr />
+        <p class="mb-0">
+          <b>UserName: </b>alvisonhunter<b> | Password: </b>password2021
+        </p>
+      </div>
+    </div>
     <div class="row h-100 justify-content-center align-items-center">
       <b-card
         :header="loginError"
         header-class="myheader"
-        class="overflow-hidden my-4 mx-auto"
-        style="margin-top: 16%!important; max-width: 640px;"
+        class="overflow-hidden my-2 mx-auto"
+        style="margin-top: 8%!important; max-width: 640px;"
       >
         <b-row no-gutters>
           <b-col md="6">
@@ -65,14 +78,14 @@
 </template>
 
 <script>
-import { registeredUsers } from "../src/users/users.js"; // list of users
+import { registeredUsers } from '../src/users/users.js'; // list of users
 export default {
-  name: "LoginScreen",
+  name: 'LoginScreen',
   data() {
     return {
       input: {
-        password: "",
-        username: "",
+        password: '',
+        username: '',
       },
       registeredUsers: registeredUsers,
     };
@@ -90,7 +103,7 @@ export default {
      */
     makeToast(append = false) {
       this.$bvToast.toast(`You must logon in order to access the website.`, {
-        title: "Welcome to VueStore",
+        title: 'Welcome to VueStore',
         autoHideDelay: 3000,
         appendToast: append,
       });
@@ -123,7 +136,7 @@ export default {
      * be able to access restricted views only permitted to registered users
      */
     login() {
-      if (this.input.username != "" && this.input.password != "") {
+      if (this.input.username != '' && this.input.password != '') {
         // Once I confirmed I have valid input, it is time to determine
         // if this user exist in our users file, let's use this method
         // to be able to find out if this is true
@@ -142,18 +155,18 @@ export default {
           // We got it! now is time to activate this fllag to allow me the
           // navigation to the next section, or view, or page, or whatever
           // you guys feel like call it, to me is simply a plain view
-          this.$emit("authenticated", true);
+          this.$emit('authenticated', true);
           this.$store.state.isLogged = true; // set user login status to true
-          this.$router.push({ path: "/page1" }); // redirect to the main page o view.
+          this.$router.push({ path: '/home' }); // redirect to the main page o view.
         } else {
           // On Error, I am using this state property to inform the user of the error on the UI
           this.$store.state.loginErrorMsg =
-            "The username and / or password is incorrect";
+            'The username and / or password is incorrect';
         }
       } else {
         // On Error, I am using this state property to inform the user of the error on the UI
         this.$store.state.loginErrorMsg =
-          "A username and password must be present";
+          'A username and password must be present';
       }
     },
   },
@@ -162,8 +175,8 @@ export default {
     // a computed getter to verify the logon user status
     userStatus: function() {
       let logonStatus = this.$store.state.isLogged
-        ? "You’re Logged In"
-        : "You’re Logged Out";
+        ? 'You’re Logged In'
+        : 'You’re Logged Out';
       return logonStatus;
     },
     // This is how I handle the logon error events, this came up nicely

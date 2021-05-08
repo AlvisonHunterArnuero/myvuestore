@@ -1,17 +1,24 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VuexPersist from 'vuex-persist';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+const vuexPersist = new VuexPersist({
+  key: 'my-app',
+  storage: window.localStorage,
+});
+
+export const store = new Vuex.Store({
+  plugins: [vuexPersist.plugin],
   state: {
-    username: "",
-    password: "",
+    username: '',
+    password: '',
     islogged: false,
     cart: [],
     total: 0,
     items: 0,
-    loginErrorMsg: "",
+    loginErrorMsg: '',
   },
   mutations: {
     addNewItem(state, payload) {
