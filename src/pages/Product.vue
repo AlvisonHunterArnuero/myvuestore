@@ -260,7 +260,6 @@ export default {
     // reference once we need to use it here or elsewhere
 
     addItem2Cart: function() {
-      alert('HI adding');
       this.countItem = +this.countItem + 1;
       this.total = +this.total + +this.price;
       this.$store.state.total = this.total;
